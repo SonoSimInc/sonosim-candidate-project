@@ -1,4 +1,8 @@
-# SonosimChallenge
+# SonoSim Challenge
+
+This project was created to assess the skills of SonoSim Frontend Software Engineer candidates. 
+
+To begin, fire up the development server and follow the instructions on the index page.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
 
