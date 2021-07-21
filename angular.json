@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sonosim-challenge": {
+    "sonosim-candidate-project": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sonosim-challenge",
+            "outputPath": "dist/sonosim-candidate-project",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "sonosim-challenge:build:production"
+              "browserTarget": "sonosim-candidate-project:build:production"
             },
             "development": {
-              "browserTarget": "sonosim-challenge:build:development"
+              "browserTarget": "sonosim-candidate-project:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sonosim-challenge:build"
+            "browserTarget": "sonosim-candidate-project:build"
           }
         },
         "test": {
@@ -107,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "sonosim-challenge"
+  "defaultProject": "sonosim-candidate-project"
 }
