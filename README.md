@@ -1,5 +1,8 @@
 # SonoSim Candidate Project
 
+# Some quick updates to the candidate2 branch by dash
+# please disregard
+
 This project was created to assess the skills of SonoSim Frontend Software Engineer candidates. 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
