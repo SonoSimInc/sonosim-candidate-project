@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProbesComponent } from './probes.component';
+//import { HttpClientModule } from '@angular/common/http';
 
 describe('ProbesComponent', () => {
   let component: ProbesComponent;

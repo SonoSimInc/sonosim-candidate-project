@@ -1,1 +1,52 @@
-<p>probes works!</p>
+
+<h1>
+  Probes
+</h1>
+<table class="center">
+    <thead>
+    <tr>
+        <th>
+            ProbeID
+        </th>
+        <th>
+            Assignee
+        </th>
+        <th>
+            Modules
+        </th>
+        <th>
+            Status
+        </th>
+    </tr>
+    </thead>
+
+    <tbody> 
+    <tr *ngFor="let item of probes">
+        <td>{{item.id}}</td>
+        <td>{{item.assignedTo}}</td>
+        <td>{{item.moduleIds}}</td>
+        <td>{{item.status}}</td>
+    </tr>
+    </tbody>
+    
+</table>
+<!-- this code is for the modules table. Ideally i would like the modules to be dislayed in the table above but becasue I am just learning angular, I thought this would be easier. Unfortunately, within this timeframe, I wasn't able to figure out why I'm unable to access the module JSON object accurately.
+<table class = "right">
+	<thead>
+    <tr>
+        <th>
+            Module ID
+        </th>
+        <th>
+            Module Name
+        </th>
+    </tr>
+    </thead>
+	<tbody>
+		<tr *ngFor="let item of moduleNames">
+        	<td>{{moduleNames.id}}</td>
+        	<td>{{moduleNames.name}}</td>
+    	</tr>
+    </tbody>
+</table>
+-->
