@@ -10,6 +10,4 @@ Fire up the development server (`npm run start`), navigate to `http://localhost:
 
 ## When Finished
 
-Zip up the project and email it to frontend@sonosim.com. 
-
-The subject line must include your name and the name of the project.
+Commit your changes to your branch and push up to the remote repository.
