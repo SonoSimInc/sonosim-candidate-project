@@ -10,7 +10,11 @@
             <td>{{probe.id}}</td>
             <td>{{probe.status}}</td>
             <td>{{probe.assignedTo}}</td>
-            <td *ngFor="let id of probe.moduleIds">{{modules[id]}}</td>
+            <td>
+                <ul *ngFor="let id of probe.moduleIds">
+                    <li>{{modules[id]}}</li>
+                </ul>
+            </td>
         </tr>
     </table>
 </div>

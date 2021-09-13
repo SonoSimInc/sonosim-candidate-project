@@ -20,16 +20,23 @@ export class ProbesComponent implements OnInit {
     this.getProbes();
   }
 
+  // Fetches all probe data
   getProbes(): void {
     this.probeService.getProbes()
       .subscribe(probes => this.probes = probes);
   }
 
+  // Fetches all module data
   getModules(): void {
     this.moduleService.getModules()
-      .subscribe(modules => modules.forEach(module => {
-        this.modules[module.id] = module.name;
-      }));
+      .subscribe(modules => this.mapModules(modules));
+  }
+
+  // Maps modules to create key/value pairs of the module ID and name, eg. {1 : "Adrenal Glands"}
+  mapModules(mods: any): void {
+    for(let mod of mods) {
+      this.modules[mod.id] = mod.name;
+    }
   }
 
 }
