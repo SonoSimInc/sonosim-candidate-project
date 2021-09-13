@@ -1,36 +1,42 @@
 <div class="container">
-    <table>
-        <tr id="header">
-            <th id="probe-id">Probe ID &#x25B2; </th>
-            <th id="status">Status</th>
-            <th id="assignee">Assignee</th>
-            <th>Modules</th>
-        </tr>
-        <tr *ngFor="let probe of probes">
-            <td>{{probe.id}}</td>
-            <td [ngStyle]="{'color':probe.status === 'Expired' ? 'red' : '#616161' }">{{probe.status}}</td>
-            <td>{{probe.assignedTo}}</td>
-            <td *ngIf="probe.moduleIds.length; else elseBlock">
-                <ul *ngFor="let id of probe.moduleIds">
-                    <li>{{modules[id]}}</li>
-                </ul>
-            </td>
-            <ng-template #elseBlock>
-                <td>
-                    <ul>
-                        <li>None</li>
+    <div id="content" *ngIf="probes.length; else loadingBlock">
+        <table>
+            <tr id="header">
+                <th id="probe-id">Probe ID &#x25B2; </th>
+                <th id="status">Status</th>
+                <th id="assignee">Assignee</th>
+                <th>Modules</th>
+            </tr>
+            <tr *ngFor="let probe of probes">
+                <td>{{probe.id}}</td>
+                <td [ngStyle]="{'color':probe.status === 'Expired' ? 'red' : '#616161' }">{{probe.status}}</td>
+                <td>{{probe.assignedTo}}</td>
+                <td *ngIf="probe.moduleIds.length; else noneBlock">
+                    <ul *ngFor="let id of probe.moduleIds">
+                        <li>{{modules[id]}}</li>
                     </ul>
                 </td>
-            </ng-template>
-        </tr>
-    </table>
-    <div>
-        <p>Total Probes: {{probes.length}}</p>
-        <p>Total Active: {{active}}</p>
-        <p>Total Expired: {{probes.length - active}}</p>
-        <p>Probe count per module:</p>
-        <ul *ngFor="let module of modProbeCount">
-            <li>{{module[0]}}: {{module[1]}}</li>
-        </ul>
+                <ng-template #noneBlock>
+                    <td>
+                        <ul>
+                            <li>None</li>
+                        </ul>
+                    </td>
+                </ng-template>
+            </tr>
+        </table>
+        <div>
+            <h3>Overview</h3>
+            <p>Total Probes: {{probes.length}}</p>
+            <p>Total Active: {{active}}</p>
+            <p>Total Expired: {{probes.length - active}}</p>
+            <p>Probe count per module:</p>
+            <ul *ngFor="let module of modProbeCount" id="count">
+                <li>{{module[0]}}: {{module[1]}}</li>
+            </ul>
+        </div>
     </div>
+    <ng-template #loadingBlock>
+        <h3>Loading...</h3>
+    </ng-template>
 </div>

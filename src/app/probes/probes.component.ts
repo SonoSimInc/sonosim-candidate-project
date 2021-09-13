@@ -60,16 +60,19 @@ export class ProbesComponent implements OnInit {
     let moduleIdsArr: number[] = [];
     let moduleMap: any = {};
     
+    // concatenate all moduleIds arrays from all probes
     for(let probe of this.probes) {
       let modules: number[] = probe.moduleIds;
       moduleIdsArr = moduleIdsArr.concat(modules);
     }
 
+    // map module names with probe count
     for(let num of moduleIdsArr) {
       let moduleName: string = this.modules[num];
       moduleMap[moduleName] = ++moduleMap[moduleName] || 1;
     }
 
+    // convert map to an array for easier iteration in the HTML template
     this.modProbeCount = Object.keys(moduleMap).map(key => [key, moduleMap[key]]);
   }
 
