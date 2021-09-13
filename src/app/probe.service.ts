@@ -12,6 +12,9 @@ export class ProbeService {
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * Fetches probe data from SonoSim API
+   */
   getProbes(): Observable<Probe[]> {
     return this.http.get<Probe[]>(this.probesUrl)
       .pipe(
