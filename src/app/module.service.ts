@@ -2,24 +2,24 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { Probe } from './probe';
+import { Module } from './module';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProbeService {
-  private probesUrl: string = 'https://sonosim.com/probes.json';
+export class ModuleService {
+  private modulesUrl: string = 'https://sonosim.com/modules.json';
 
   constructor(private http: HttpClient) { }
 
   /**
-   * Fetches probe data from SonoSim API
+   * Fetches module data from SonoSim API
    */
-  getProbes(): Observable<Probe[]> {
-    return this.http.get<Probe[]>(this.probesUrl)
+  getModules(): Observable<Module[]> {
+    return this.http.get<Module[]>(this.modulesUrl)
       .pipe(
-        tap(_ => console.log('Fetched probes.')),
-        catchError(this.handleError<Probe[]>('getProbes', []))
+        tap(_ => console.log('Fetched modules.')),
+        catchError(this.handleError<Module[]>('getModules', []))
       );
   }
 

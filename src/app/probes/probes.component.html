@@ -1,6 +1,16 @@
-<p>probes works!</p>
 <div id="probes-table">
-    <div *ngFor="let probe of probes">
-        {{probe.id}}
-    </div>
+    <table>
+        <tr>
+            <th>Probe ID</th>
+            <th>Status</th>
+            <th>Assignee</th>
+            <th>Modules</th>
+        </tr>
+        <tr *ngFor="let probe of probes">
+            <td>{{probe.id}}</td>
+            <td>{{probe.status}}</td>
+            <td>{{probe.assignedTo}}</td>
+            <td *ngFor="let id of probe.moduleIds">{{modules[id]}}</td>
+        </tr>
+    </table>
 </div>
