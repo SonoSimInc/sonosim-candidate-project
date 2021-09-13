@@ -1,0 +1,35 @@
+table {
+    border: 2px solid #0A90D0;
+    border-radius: 3px;
+    margin: 1rem;
+    width: 60%;
+    border-spacing: 0;
+}
+
+#header {
+    background-color: #0A90D0;
+    color: white;
+    text-align: left;
+}
+
+#header th, td {
+    padding: 1rem;
+}
+
+td {
+    border-bottom: 1px solid grey;
+}
+
+tr:hover {
+    background-color: rgba(211,211,211,.6);
+}
+
+ul {
+    margin: 0;
+    padding-left: 0;
+}
+
+li {
+    list-style: none;
+    line-height: 1;
+}

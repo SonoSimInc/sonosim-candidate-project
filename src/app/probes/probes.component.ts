@@ -12,6 +12,9 @@ import { ModuleService } from '../module.service';
 export class ProbesComponent implements OnInit {
   probes: Probe[] = [];
   modules: any = {};
+  modProbeCount: any = [];
+  active: number = 0;
+  expired: number = 0;
 
   constructor(private probeService: ProbeService, private moduleService: ModuleService) { }
 
@@ -23,7 +26,11 @@ export class ProbesComponent implements OnInit {
   // Fetches all probe data
   getProbes(): void {
     this.probeService.getProbes()
-      .subscribe(probes => this.probes = probes);
+      .subscribe(probes => {
+        this.probes = probes;
+        this.countActives();
+        this.countModProbes();
+      });
   }
 
   // Fetches all module data
@@ -37,6 +44,33 @@ export class ProbesComponent implements OnInit {
     for(let mod of mods) {
       this.modules[mod.id] = mod.name;
     }
+  }
+
+  // Counts the number of Active probes
+  countActives(): void {
+    for(let probe of this.probes) {
+      if(probe.status === "Active") {
+        this.active += 1;
+      } 
+    }
+  }
+
+  // Counts the number of probes per module
+  countModProbes(): void {
+    let moduleIdsArr: number[] = [];
+    let moduleMap: any = {};
+    
+    for(let probe of this.probes) {
+      let modules: number[] = probe.moduleIds;
+      moduleIdsArr = moduleIdsArr.concat(modules);
+    }
+
+    for(let num of moduleIdsArr) {
+      let moduleName: string = this.modules[num];
+      moduleMap[moduleName] = ++moduleMap[moduleName] || 1;
+    }
+
+    this.modProbeCount = Object.keys(moduleMap).map(key => [key, moduleMap[key]]);
   }
 
 }
