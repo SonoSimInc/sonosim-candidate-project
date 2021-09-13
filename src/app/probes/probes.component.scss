@@ -1,3 +1,8 @@
+h2 {
+    font-size: 2.5rem;
+    margin: 1rem 1rem 0 1rem; 
+}
+
 table {
     border: 2px solid #0A90D0;
     border-radius: 3px;
@@ -11,13 +16,13 @@ table {
     display: flex;
 }
 
-#header {
+.header {
     background-color: #0A90D0;
     color: white;
     text-align: left;
 }
 
-#header th, td {
+.header th, td {
     padding: 1rem;
 }
 
@@ -29,16 +34,22 @@ tr:hover {
     background-color: rgba(211,211,211,.6);
 }
 
-ul {
+.module-list {
     margin: 0;
     padding-left: 0;
 }
 
-li {
+.module {
     list-style: none;
     line-height: 1;
 }
 
-#count {
-    list-style: disc;
+#overview {
+    width: max-content;
+    position: fixed;
+}
+
+#overview th {
+    text-align: center;
+    padding: 1rem;
 }

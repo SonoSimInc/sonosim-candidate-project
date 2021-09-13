@@ -1,7 +1,8 @@
+<h2>Probe Tracker</h2>
 <div class="container">
     <div id="content" *ngIf="probes.length; else loadingBlock">
         <table>
-            <tr id="header">
+            <tr class="header">
                 <th id="probe-id">Probe ID &#x25B2; </th>
                 <th id="status">Status</th>
                 <th id="assignee">Assignee</th>
@@ -12,28 +13,40 @@
                 <td [ngStyle]="{'color':probe.status === 'Expired' ? 'red' : '#616161' }">{{probe.status}}</td>
                 <td>{{probe.assignedTo}}</td>
                 <td *ngIf="probe.moduleIds.length; else noneBlock">
-                    <ul *ngFor="let id of probe.moduleIds">
-                        <li>{{modules[id]}}</li>
+                    <ul *ngFor="let id of probe.moduleIds" class="module-list">
+                        <li class="module">{{modules[id]}}</li>
                     </ul>
                 </td>
                 <ng-template #noneBlock>
                     <td>
-                        <ul>
-                            <li>None</li>
+                        <ul class="module-list">
+                            <li class="module">None</li>
                         </ul>
                     </td>
                 </ng-template>
             </tr>
         </table>
         <div>
-            <h3>Overview</h3>
-            <p>Total Probes: {{probes.length}}</p>
-            <p>Total Active: {{active}}</p>
-            <p>Total Expired: {{probes.length - active}}</p>
-            <p>Probe count per module:</p>
-            <ul *ngFor="let module of modProbeCount" id="count">
-                <li>{{module[0]}}: {{module[1]}}</li>
-            </ul>
+            <table id="overview">
+                <th class="header" colspan="2">Overview</th>
+                <tr>
+                    <td>Total Probes</td>
+                    <td>{{probes.length}}</td>
+                </tr>
+                <tr>
+                    <td>Total Active</td>
+                    <td>{{active}}</td>
+                </tr>
+                <tr>
+                    <td>Total Expired</td>
+                    <td>{{probes.length - active}}</td>
+                </tr>
+                <th class="header" colspan="2">Probe count per module:</th>
+                <tr *ngFor="let module of modProbeCount">
+                    <td>{{module[0]}}</td>
+                    <td>{{module[1]}}</td>
+                </tr>
+            </table>
         </div>
     </div>
     <ng-template #loadingBlock>
