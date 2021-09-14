@@ -22,7 +22,7 @@ table {
     text-align: left;
 }
 
-.header th, td {
+th, td {
     padding: 1rem;
 }
 
@@ -30,7 +30,7 @@ td {
     border-bottom: 1px solid grey;
 }
 
-tr:hover {
+.probe:hover {
     background-color: rgba(211,211,211,.6);
 }
 

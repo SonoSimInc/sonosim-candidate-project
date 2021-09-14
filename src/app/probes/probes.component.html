@@ -3,12 +3,12 @@
     <div id="content" *ngIf="probes.length; else loadingBlock">
         <table>
             <tr class="header">
-                <th id="probe-id">Probe ID &#x25B2; </th>
+                <th id="probe-id">Probe ID</th>
                 <th id="status">Status</th>
-                <th id="assignee">Assignee</th>
+                <th id="assignee">Assigned To</th>
                 <th>Modules</th>
             </tr>
-            <tr *ngFor="let probe of probes">
+            <tr *ngFor="let probe of probes" class="probe">
                 <td>{{probe.id}}</td>
                 <td [ngStyle]="{'color':probe.status === 'Expired' ? 'red' : '#616161' }">{{probe.status}}</td>
                 <td>{{probe.assignedTo}}</td>
@@ -50,6 +50,6 @@
         </div>
     </div>
     <ng-template #loadingBlock>
-        <h3>Loading...</h3>
+        <h2>Loading...</h2>
     </ng-template>
 </div>

@@ -24,7 +24,7 @@ export class ModuleService {
   }
 
     /**
-   * Borrowed from Angular docs setup:
+   * Borrowed from Angular tutorial.
    * Handle Http operation that failed.
    * Let the app continue.
    * @param operation - name of the operation that failed

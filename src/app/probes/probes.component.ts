@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Probe } from '../probe';
-import { Module } from '../module';
 import { ProbeService } from '../probe.service';
 import { ModuleService } from '../module.service';
 
@@ -75,5 +74,8 @@ export class ProbesComponent implements OnInit {
     // convert map to an array for easier iteration in the HTML template
     this.modProbeCount = Object.keys(moduleMap).map(key => [key, moduleMap[key]]);
   }
+
+  // If I had more time, I would implement a sorting algorithm to enable the user to sort the probes table by clicking a column heading
+  // sortTable(column: string): void {...}
 
 }
