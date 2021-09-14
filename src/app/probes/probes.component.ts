@@ -77,5 +77,4 @@ export class ProbesComponent implements OnInit {
 
   // If I had more time, I would implement a sorting algorithm to enable the user to sort the probes table by clicking a column heading
   // sortTable(column: string): void {...}
-
 }
